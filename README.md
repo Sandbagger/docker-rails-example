@@ -152,10 +152,10 @@ variables to fix this.
 
 ```sh
 # You can run this from a 2nd terminal.
-./run rails db:setup
+./go rails db:setup
 ```
 
-*We'll go over that `./run` script in a bit!*
+*We'll go over that `./go` script in a bit!*
 
 #### Check it out in a browser:
 
@@ -165,10 +165,10 @@ Visit <http://localhost:8000> in your favorite browser.
 
 ```sh
 # You can run this from the same terminal as before.
-./run test
+./go test
 ```
 
-You can also run `./run test -b` with does the same thing but builds your JS
+You can also run `./go test -b` with does the same thing but builds your JS
 and CSS bundles. This could come in handy in fresh environments such as CI
 where your assets haven't changed and you haven't visited the page in a
 browser.
@@ -203,7 +203,7 @@ environment (specific dev boxes, CI, production, etc.).
 
 ### `run`
 
-You can run `./run` to get a list of commands and each command has
+You can run `./go` to get a list of commands and each command has
 documentation in the `run` file itself.
 
 It's a shell script that has a number of functions defined to help you interact
@@ -216,9 +216,9 @@ This comes in handy to run various Docker commands because sometimes these
 commands can be a bit long to type. Feel free to add as many convenience
 functions as you want. This file's purpose is to make your experience better!
 
-*If you get tired of typing `./run` you can always create a shell alias with
-`alias run=./run` in your `~/.bash_aliases` or equivalent file. Then you'll be
-able to run `run` instead of `./run`.*
+*If you get tired of typing `./go` you can always create a shell alias with
+`alias run=./go` in your `~/.bash_aliases` or equivalent file. Then you'll be
+able to run `run` instead of `./go`.*
 
 ## Running a script to automate renaming the project
 
@@ -270,12 +270,12 @@ Docker.
 docker compose up --build
 
 # Then in a 2nd terminal once it's up and ready.
-./run rails db:setup
+./go rails db:setup
 ```
 
 *If you get an error upping the project related to `RuntimeError: invalid
 bytecode` then you have old `tmp/` files sitting around related to the old
-project name, you can run `./run clean` to clear all temporary files and fix
+project name, you can run `./go clean` to clear all temporary files and fix
 the error.*
 
 #### Sanity check to make sure the tests still pass:
@@ -285,7 +285,7 @@ adding custom changes.
 
 ```sh
 # You can run this from the same terminal as before.
-./run test
+./go test
 ```
 
 If everything passes now you can optionally `git add -A && git commit -m
@@ -320,18 +320,18 @@ that just yet.
 
 #### In development:
 
-You can run `./run bundle:outdated` or `./run yarn:outdated` to get a list of
+You can run `./go bundle:outdated` or `./go yarn:outdated` to get a list of
 outdated dependencies based on what you currently have installed. Once you've
 figured out what you want to update, go make those updates in your `Gemfile`
 and / or `package.json` file.
 
-Then to update your dependencies you can run `./run bundle:install` or `./run
+Then to update your dependencies you can run `./go bundle:install` or `./go
 yarn:install`. That'll make sure any lock files get copied from Docker's image
 (thanks to volumes) into your code repo and now you can commit those files to
 version control like usual.
 
 Alternatively for updating your gems based on specific version ranges defined
-in your `Gemfile` you can run `./run bundle:update` which will install the
+in your `Gemfile` you can run `./go bundle:update` which will install the
 latest versions of your gems and then write out a new lock file.
 
 You can check out the `run` file to see what these commands do in more detail.

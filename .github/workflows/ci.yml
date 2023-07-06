@@ -18,7 +18,7 @@ jobs:
 
       - name: "Install CI dependencies"
         run: |
-          ./run ci:install-deps
+          ./go ci:install-deps
 
       - name: "Test"
         run: |
@@ -26,4 +26,4 @@ jobs:
           sed -i "s|.:/app|/tmp:/tmp|g" .env*
           sed -i "s|.:/app|/tmp:/tmp|g" docker-compose.yml
 
-          ./run ci:test
+          ./go ci:test
