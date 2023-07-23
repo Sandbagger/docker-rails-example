@@ -81,6 +81,7 @@ services:
       start_period: "5s"
       retries: 3
     ports:
+    # In non-development environments run INGX on the host and not in a container see https://nickjanetakis.com/blog/why-i-prefer-running-nginx-on-my-docker-host-instead-of-in-a-container
       - "${DOCKER_WEB_PORT_FORWARD:-127.0.0.1:8000}:${PORT:-8000}"
     profiles: ["web"]
 
