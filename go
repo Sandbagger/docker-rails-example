@@ -28,6 +28,17 @@ function _build_run_down {
 
 # -----------------------------------------------------------------------------
 
+function up {
+  docker compose up -d --build
+   docker compose exec web bundle exec rails db:setup db:migrate db:seed
+  ./go test
+   docker compose logs -f web
+}
+
+function down {
+  docker compose down
+}
+
 function cmd {
   # Run any command you want in the web container
   _dc web "${@}"
