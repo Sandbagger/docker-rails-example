@@ -39,6 +39,13 @@ function down {
   docker compose down
 }
 
+function lint {
+  if [ "${1:-}" = "--fix" ]; then
+    docker compose  exec -it web standardrb --fix
+  fi 
+  docker compose  exec -it web standardrb
+}
+
 function cmd {
   # Run any command you want in the web container
   _dc web "${@}"
