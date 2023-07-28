@@ -30,4 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello!"
+  meta:
+    title: Base Ruby on Rails Application
+    description: This a fully featured template application to be used as a base for my personal projects
+  brand:
+    name: William Neal
