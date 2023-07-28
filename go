@@ -68,7 +68,7 @@ function test {
   _dc -e "RAILS_ENV=test" js bash -c "${test_command}"
 }
 
-function shell {
+function sh {
   # Start a shell session in the web container
   cmd bash "${@}"
 }
