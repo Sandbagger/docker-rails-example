@@ -68,9 +68,19 @@ function test {
   _dc -e "RAILS_ENV=test" js bash -c "${test_command}"
 }
 
+function static {
+  cd static
+  wget -mnH http://localhost:8000/ 
+
+     if [ "${1:-}" = "up" ]; then
+       cd ..
+       http-server ./static
+    fi
+}
+
 function logs {
   # View Rails logs
-  _dc logs -f web
+  docker compose logs -f web
 }
 
 function sh {
