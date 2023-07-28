@@ -68,6 +68,11 @@ function test {
   _dc -e "RAILS_ENV=test" js bash -c "${test_command}"
 }
 
+function logs {
+  # View Rails logs
+  _dc logs -f web
+}
+
 function sh {
   # Start a shell session in the web container
   cmd bash "${@}"
